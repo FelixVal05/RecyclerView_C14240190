@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
             binding.rvWayang.layoutManager = GridLayoutManager(this, 2)
         }
         else{
-            binding.rvWayang.layoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
+            binding.rvWayang.layoutManager = LinearLayoutManager(this)
         }
 
         val adapterWayang = adapterRecView(_arWayang)
