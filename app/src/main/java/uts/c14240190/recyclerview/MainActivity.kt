@@ -5,7 +5,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import uts.c14240190.recyclerview.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -32,6 +34,10 @@ class MainActivity : AppCompatActivity() {
         siapkanData()
         tambahData()
         tampilKanData()
+
+        binding.btnToggleLayout.setOnClickListener {
+            tampilKanData()
+        }
     }
     private fun siapkanData() {
         _nama = resources.getStringArray(R.array.namaWayang)
@@ -55,7 +61,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun tampilKanData(){
-        binding.rvWayang.layoutManager = LinearLayoutManager(this)
+        if (binding.btnToggleLayout.isChecked){
+            binding.rvWayang.layoutManager = GridLayoutManager(this, 2)
+        }
+        else{
+            binding.rvWayang.layoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
+        }
         binding.rvWayang.adapter = adapterRevView(_arWayang)
     }
 }
