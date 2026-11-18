@@ -28,4 +28,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
+    private fun siapkanData() {
+        _nama = resources.getStringArray(R.array.namaWayang)
+        _karakter = resources.getStringArray(R.array.karakterUtamaWayang)
+        _deskripsi = resources.getStringArray(R.array.deskripsiWayang)
+        _gambar = resources.getStringArray(R.array.gambarWayang)
+
+    }
 }
