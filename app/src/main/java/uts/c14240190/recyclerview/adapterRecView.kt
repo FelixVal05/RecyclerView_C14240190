@@ -3,6 +3,7 @@ package uts.c14240190.recyclerview
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import uts.c14240190.recyclerview.databinding.ItemRecyclerBinding
 
 class adapterRevView (private val listWayang: ArrayList<dcWayang>) :
@@ -35,5 +36,10 @@ class adapterRevView (private val listWayang: ArrayList<dcWayang>) :
         holder.binding.namaWayang.text = wayang.nama
         holder.binding.karakterWayang.text = wayang.karakter
         holder.binding.deskripsiWayang.text = wayang.deskripsi
+        holder.binding.gambarWayang.load(wayang.foto){
+            crossfade(true)
+            placeholder(R.drawable.ic_launcher_background)
+            error(R.drawable.ic_launcher_background)
+        }
     }
 }
