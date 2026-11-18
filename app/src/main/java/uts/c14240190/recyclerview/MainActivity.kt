@@ -8,6 +8,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -64,6 +65,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun tampilKanData(){
+        binding.rvWayang.itemAnimator = DefaultItemAnimator().apply {
+            removeDuration = 400L
+        }
         if (binding.btnToggleLayout.isChecked){
             binding.rvWayang.layoutManager = GridLayoutManager(this, 2)
         }
