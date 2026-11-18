@@ -42,6 +42,33 @@ class MainActivity : AppCompatActivity() {
         binding.btnToggleLayout.setOnClickListener {
             tampilKanData()
         }
+
+        binding.btnTambah.setOnClickListener {
+            val nama = binding.etNama.text.toString()
+            val karakter = binding.etKarakter.text.toString()
+            val deskripsi = binding.etDeskripsi.text.toString()
+            val foto = binding.etFoto.text.toString()
+
+            if (nama.isEmpty() || karakter.isEmpty() || deskripsi.isEmpty() || foto.isEmpty()) {
+                Toast.makeText(this, "Nama, karakter, dan deskripsi harus diisi", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                val wayang = dcWayang(
+                    foto = foto,
+                    nama = nama,
+                    karakter = karakter,
+                    deskripsi = deskripsi
+                )
+                _arWayang.add(wayang)
+                tampilKanData()
+
+                binding.etNama.setText("")
+                binding.etKarakter.setText("")
+                binding.etDeskripsi.setText("")
+                binding.etFoto.setText("")
+                Toast.makeText(this, "$nama berhasil ditambahkan", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
     private fun siapkanData() {
         _nama = resources.getStringArray(R.array.namaWayang)

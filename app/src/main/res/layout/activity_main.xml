@@ -5,7 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <EditText
+        android:id="@+id/etNama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nama"
+        android:inputType="text">
+    </EditText>
+
+    <EditText
+        android:id="@+id/etKarakter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Karakter (Pandawa / Punakawan / Kurawa)"
+        android:inputType="text">
+    </EditText>
+
+    <EditText
+        android:id="@+id/etDeskripsi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Deskripsi"
+        android:inputType="textMultiLine">
+    </EditText>
+
+    <EditText
+        android:id="@+id/etFoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="URL Foto"
+        android:inputType="textUri">
+    </EditText>
+
+    <Button
+        android:id="@+id/btnTambah"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tambah Data">
+    </Button>
 
     <ToggleButton
         android:id="@+id/btnToggleLayout"
