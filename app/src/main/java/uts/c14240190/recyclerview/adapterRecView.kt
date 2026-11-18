@@ -8,8 +8,14 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import coil.load
 import uts.c14240190.recyclerview.databinding.ItemRecyclerBinding
 
-class adapterRevView (private val listWayang: ArrayList<dcWayang>) :
-    RecyclerView.Adapter<adapterRevView.ListViewHolder>(){
+class adapterRecView (private val listWayang: ArrayList<dcWayang>) :
+    RecyclerView.Adapter<adapterRecView.ListViewHolder>(){
+
+    private lateinit var onItemClickCallBack: OnItemClickCallBack
+
+    interface OnItemClickCallBack {
+        fun onItemClicked(data: dcWayang)
+    }
 
     inner class ListViewHolder(val binding: ItemRecyclerBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -57,6 +63,14 @@ class adapterRevView (private val listWayang: ArrayList<dcWayang>) :
                 "Gambar ${wayang.nama} diklik",
                 Toast.LENGTH_SHORT
             ).show()
+
+            if (::onItemClickCallBack.isInitialized){
+                onItemClickCallBack.onItemClicked(wayang)
+            }
         }
+    }
+
+    fun setOnItemClickCallBack(onItemClickCallBack: OnItemClickCallBack){
+        this.onItemClickCallBack = onItemClickCallBack
     }
 }

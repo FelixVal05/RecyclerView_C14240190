@@ -1,5 +1,6 @@
 package uts.c14240190.recyclerview
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -67,6 +68,20 @@ class MainActivity : AppCompatActivity() {
         else{
             binding.rvWayang.layoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
         }
-        binding.rvWayang.adapter = adapterRevView(_arWayang)
+
+        val adapterWayang = adapterRecView(_arWayang)
+        adapterWayang.setOnItemClickCallBack(object : adapterRecView.OnItemClickCallBack{
+            override fun onItemClicked(data: dcWayang){
+                val intent = Intent(this@MainActivity, DetailActivity::class.java).apply{
+                    putExtra("nama",data.nama)
+                    putExtra("karakter",data.karakter)
+                    putExtra("deskripsi",data.deskripsi)
+                    putExtra("foto",data.foto)
+                }
+                startActivity(intent)
+            }
+        })
+        binding.rvWayang.adapter = adapterWayang
+
     }
 }
