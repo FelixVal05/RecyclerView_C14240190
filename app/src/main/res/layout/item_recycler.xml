@@ -47,10 +47,22 @@
         android:layout_marginTop="8dp"
         android:text="deskripsiWayang"
         android:textSize="18sp"
+        android:ellipsize="end"
+        android:maxLines="3"
         app:layout_constraintTop_toBottomOf="@id/karakterWayang"
         app:layout_constraintStart_toEndOf="@id/gambarWayang"
         app:layout_constraintEnd_toEndOf="parent">
     </TextView>
 
+    <Button
+        android:id="@+id/btnHapus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hapus"
+        android:textColor="#F44336"
+        style="?attr/borderlessButtonStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </Button>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
