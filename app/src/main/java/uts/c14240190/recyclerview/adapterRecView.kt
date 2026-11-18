@@ -2,6 +2,7 @@ package uts.c14240190.recyclerview
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import coil.load
@@ -48,6 +49,14 @@ class adapterRevView (private val listWayang: ArrayList<dcWayang>) :
             crossfade(true)
             placeholder(R.drawable.ic_launcher_background)
             error(R.drawable.ic_launcher_background)
+        }
+
+        holder.binding.gambarWayang.setOnClickListener {
+            Toast.makeText(
+                holder.itemView.context,
+                "Gambar ${wayang.nama} diklik",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 }
