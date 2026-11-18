@@ -35,4 +35,17 @@ class MainActivity : AppCompatActivity() {
         _gambar = resources.getStringArray(R.array.gambarWayang)
 
     }
+
+    private fun tambahData(){
+        _arWayang.clear()
+        for (i in _nama.indices){
+            val wayang = dcWayang(
+                foto = _gambar[i],
+                nama = _nama[i],
+                karakter = _karakter[i],
+                deskripsi = _deskripsi[i]
+            )
+            _arWayang.add(wayang)
+        }
+    }
 }
